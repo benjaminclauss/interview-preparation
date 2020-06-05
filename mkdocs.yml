@@ -1,0 +1,19 @@
+site_name: Interview Preparation
+nav:
+    - Home: index.md
+    - Big O: big-o.md
+    - Arrays & Strings: arrays-and-strings.md
+    - Linked Lists: linked-lists.md
+    - Stacks & Queues: stacks-and-queues.md
+    - Heaps: heaps.md
+    - Trees & Binary Search Trees: trees.md
+    - Search & Sort Algorithms: search-and-sort.md
+    - Graph Algorithms: graphs.md
+    - Dynamic Programming: dynamic-programming.md
+    - Backtracing: backtracking.md
+    - Scheduling: scheduling.md
+    - Divide and Conquer: divide-and-conquer.md
+    - Recursion: recursion.md
+
+theme: readthedocs
+
