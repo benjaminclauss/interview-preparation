@@ -68,7 +68,7 @@
     <a class="current" href="./">Linked Lists</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#therunnertechnique">The"Runner"Technique</a></li>
+    <li class="toctree-l2"><a href="#the-runner-technique">The "Runner" Technique</a></li>
     
 
     </ul>
@@ -76,27 +76,37 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../stacks-and-queues/">Stacks & Queues</a>
+    <a class="" href="../stacks/">Stacks</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../heaps.md">Heaps</a>
+    <a class="" href="../queues/">Queues</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../trees.md">Trees & Binary Search Trees</a>
+    <a class="" href="../trees/">Trees</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../heaps/">Heaps</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tries/">Tries (Prefix Trees)</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../graphs.md">Graphs</a>
 	    </li>
           
             <li class="toctree-l1">
 		
     <a class="" href="../search-and-sort/">Search & Sort Algorithms</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../graphs.md">Graph Algorithms</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -122,6 +132,17 @@
             <li class="toctree-l1">
 		
     <a class="" href="../recursion.md">Recursion</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../databases.md">Databases</a>
+                </li>
+    </ul>
 	    </li>
           
         </ul>
@@ -171,7 +192,6 @@ class SingleLinkedList:
         self.head = None
 
     def print(self):
-        '''Print the list.'''
         node = self.head
         while node is not None:
             print(node.value)
@@ -188,14 +208,13 @@ class DoubleLinkedList:
         self.head = None
 
     def print(self):
-        '''Print the list.'''
         node = self.head
         while node is not None:
             print(node.value)
             node = node.nextI 
 </code></pre>
 
-<h4 id="therunnertechnique">The"Runner"Technique</h4>
+<h4 id="the-runner-technique">The "Runner" Technique</h4>
 <p>The "runner" (or second pointer) technique is used in many linked list problems. The runner technique means that you iterate through the linked list with two pointers simultaneously, with one ahead of the other. The "fast" node might be ahead by a fixed amount, or it might be hopping multiple nodes for each one node that the "slow" node iterates through.</p>
               
             </div>
@@ -204,7 +223,7 @@ class DoubleLinkedList:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../stacks-and-queues/" class="btn btn-neutral float-right" title="Stacks & Queues">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../stacks/" class="btn btn-neutral float-right" title="Stacks">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../arrays-and-strings/" class="btn btn-neutral" title="Arrays & Strings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -236,7 +255,7 @@ class DoubleLinkedList:
         <span><a href="../arrays-and-strings/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../stacks-and-queues/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../stacks/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Iuncis vulgatum ceu tectus - Interview Preparation</title>
+  <title>Stacks - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Iuncis vulgatum ceu tectus";
-    var mkdocs_page_input_path = "about.md";
+    var mkdocs_page_name = "Stacks";
+    var mkdocs_page_input_path = "stacks.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -68,9 +68,18 @@
     <a class="" href="../linked-lists/">Linked Lists</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../stacks/">Stacks</a>
+    <a class="current" href="./">Stacks</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
+    
+
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -161,7 +170,7 @@
     
       
     
-    <li>Iuncis vulgatum ceu tectus</li>
+    <li>Stacks</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -171,59 +180,75 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="iuncis-vulgatum-ceu-tectus">Iuncis vulgatum ceu tectus</h1>
-<h2 id="abluere-erat-cytoriaco">Abluere erat Cytoriaco</h2>
-<p>Lorem markdownum ducebat Iuppiter, pro ante ubi brevi stellis pulchra hunc esse
-<strong>non dumque</strong> pereat est. Iam mores potuitque esse. Sonant Anius, opem
-pastoris, vota num bidentes, pater, illis <em>inexpugnabile primo</em> ego cupiunt
-sustinet parenti.</p>
+                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=stack">LeetCode Stack Problems</a></p>
+<p>The stack data structure is precisely what it sounds like: a stack of data. In certain types of problems, it can be favorable to store data in a stack rather than in an array.</p>
+<p>A stack uses LIFO (last-in first-out) ordering. That is, as in a stack of dinner plates, the most recent item added to the stack is the first item to be removed.</p>
+<p>It uses the following operations:</p>
 <ul>
-<li>Crimine essent alto interea piget refert</li>
-<li>Iacit currus habitabile pascere erimus moenia</li>
-<li>Fuisset est deum nectar</li>
-<li>Equorum mergit quinquennia sorores quae forti parentem</li>
-<li>Leve est nam exercebat ignorant et pede</li>
-<li>Parentum relinquam in quoque aurea</li>
+<li><code>pop()</code>: Remove the top item from the stack.</li>
+<li><code>push(item)</code>: Add an item to the top of the stack.</li>
+<li><code>peek()</code>: Return the top of the stack.</li>
+<li><code>is_empty()</code>: Return <code>True</code> if and only if the stack is empty.</li>
 </ul>
-<h2 id="tuae-ubi-rursus-est-figuras-timidum-et">Tuae ubi rursus est figuras timidum et</h2>
-<p>Ieiunia id <strong>suis incursat Surgit</strong> laeva tibi. Est dare, resupino posuerunt
-vadit valles, et hanc silendo vocatur mediae.</p>
-<pre><code>software += restore;
-pushLanguagePrinter(-5, ergonomics_sd, readerMbr);
-webPingHashtag *= bar_goodput_compact(icann_atm, uml / 2 - ppi, encoding);
-php *= rteCrop(copy(583176, link_crt_tag + technology, 34 + jsp));
+<h3 id="implementation">Implementation</h3>
+<pre><code>class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def pop(self):
+        if len(self.stack) &gt; 0:
+            return self.stack.pop()
+        return None
+
+    def push(self, item):
+        self.stack.append(item)
+
+    def peek(self):
+        return self.stack[len(self.stack) - 1]
+
+    def is_empty(self):
+        return len(self.stack) == 0
 </code></pre>
-<p>Inania bene, <a href="http://spatiumadde.com/">haec suis geruntur</a> vinaque; facta
-<a href="http://fratrisqueagro.io/taedia-exercita">est</a>. O <strong>carcere liquefacta</strong>, furit
-mentoque, accipimus agrestes, has non movetur in carmine poscit simulavit. Esse
-eris nam Aeginam iacit me dixerunt laevum consule pedes. Audis enim Arcades
-animalia gemmas Medusae altissima.</p>
-<h2 id="et-perseus-liquores-addita">Et Perseus liquores addita</h2>
-<p>Oblitus <strong>puer</strong> quae nunc videt tantoque, adspicio Haec,
-<a href="http://ut.com/ignotisliber.html">neu</a> in facta ubi per pensandum medio,
-vertere. Ait acuta palmite humi: <strong>ex</strong> pudetque temporis Cythereius intremuit
-auctor.</p>
-<pre><code>icsEbookWamp /= raidMaster.hard_dvd_drive(lcd_hard_google);
-osdKernelSequence.heapT = bugDdrSsid.docking(beta_cookie(8)) + shortcut(
-        menu_num_port(1), ppmBarRdf + hertzEthics);
-var piracy_mouse = readme;
-if (dot_gbps &lt;= 4) {
-    friendly_portal(-5);
-} else {
-    gate += boxVrmlIo;
-    dvi += trinitronBinAnsi;
-}
+
+<p>One case where stacks are often useful is in certain recursive algorithms. Sometimes you need to push temporary data onto a stack as you recurse, but then remove them as you backtrack (for example, because the recursive check failed). A stack offers an intuitive way to do this.</p>
+<p>A stack can also be used to implement a recursive algorithm iteratively. (This is a good exercise! Take a simple recursive algorithm and implement it iteratively.)</p>
+<h3 id="usage">Usage</h3>
+<p><strong>List</strong></p>
+<pre><code>letters = []
+
+# Add to stack.
+letters.append('a')
+letters.append('b')
+
+# Remove from stack.
+last_item = letters.pop()
 </code></pre>
-<p>In adurat cassis Atridae erubuit et inrita Sicyonius volucrum peperisse sunt
-Saturnia: cavas. Est ardet, veretur, terribilis situs et veloque omnes Ianthe
-direptos Dolona. Puellari turpique iam quoque etiam Stygias nec pretium seque,
-petis mihi forte Sithonios feruntur bisulcam, inquam gestumque iubet. Pigetque
-quod, nisi capiti nympha interea. Quo nec pependit putares victa eques in duabus
-illo caput.</p>
+
+<p><strong>deque</strong></p>
+<pre><code>from collections import deque
+
+numbers = deque()
+
+# Use append like before to add elements.
+numbers.append(99)
+numbers.append(15)
+
+# You can pop like a stack.
+last_item = numbers.pop()
+</code></pre>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../queues/" class="btn btn-neutral float-right" title="Queues">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../linked-lists/" class="btn btn-neutral" title="Linked Lists"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -247,6 +272,10 @@ illo caput.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+        <span><a href="../linked-lists/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../queues/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
