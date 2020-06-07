@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Stacks - Ben's Super Secret Cool Dude Interview Preparation Website</title>
+  <title>Stacks - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href=".." class="icon icon-home"> Interview Preparation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -104,7 +104,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../graphs.md">Graphs</a>
+    <a class="" href="../graphs/">Graphs</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -114,7 +114,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dynamic-programming.md">Dynamic Programming</a>
+    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -139,6 +139,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../about/">Example Page</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Other</span>
     <ul class="subnav">
                 <li class="">
@@ -158,7 +163,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href="..">Interview Preparation</a>
       </nav>
 
       
@@ -180,7 +185,7 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=stack">LeetCode Stack Problems</a></p>
+                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=stack">Stack Problems</a></p>
 <p>The stack data structure is precisely what it sounds like: a stack of data. In certain types of problems, it can be favorable to store data in a stack rather than in an array.</p>
 <p>A stack uses LIFO (last-in first-out) ordering. That is, as in a stack of dinner plates, the most recent item added to the stack is the first item to be removed.</p>
 <p>It uses the following operations:</p>
@@ -204,12 +209,13 @@
         self.stack.append(item)
 
     def peek(self):
-        return self.stack[len(self.stack) - 1]
+        if len(self.stack) &gt; 0:
+            return self.stack[len(self.stack) - 1]
+        return None
 
     def is_empty(self):
         return len(self.stack) == 0
 </code></pre>
-
 <p>One case where stacks are often useful is in certain recursive algorithms. Sometimes you need to push temporary data onto a stack as you recurse, but then remove them as you backtrack (for example, because the recursive check failed). A stack offers an intuitive way to do this.</p>
 <p>A stack can also be used to implement a recursive algorithm iteratively. (This is a good exercise! Take a simple recursive algorithm and implement it iteratively.)</p>
 <h3 id="usage">Usage</h3>
@@ -223,7 +229,6 @@ letters.append('b')
 # Remove from stack.
 last_item = letters.pop()
 </code></pre>
-
 <p><strong>deque</strong></p>
 <pre><code>from collections import deque
 

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Graphs - Interview Preparation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Graphs";
+    var mkdocs_page_input_path = "graphs.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Interview Preparation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../big-o.md">Big O</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../arrays-and-strings/">Arrays & Strings</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../linked-lists/">Linked Lists</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../stacks/">Stacks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../queues/">Queues</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../trees/">Trees</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../heaps/">Heaps</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../tries/">Tries (Prefix Trees)</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Graphs</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#adjacency-list">Adjacency List</a></li>
+        
+            <li><a class="toctree-l3" href="#adjacency-matrices">Adjacency Matrices</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#graph-search">Graph Search</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#depth-first-search-dfs">Depth-First Search (DFS)</a></li>
+        
+            <li><a class="toctree-l3" href="#breadth-first-search-bfs">Breadth-First Search (BFS)</a></li>
+        
+            <li><a class="toctree-l3" href="#bidirectional-search">Bidirectional Search</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../search-and-sort/">Search & Sort Algorithms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backtracking.md">Backtracing</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../scheduling.md">Scheduling</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../divide-and-conquer.md">Divide and Conquer</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../recursion.md">Recursion</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">Example Page</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Other</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../databases.md">Databases</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Interview Preparation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Graphs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <ul>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=graph">Graph Problems</a></li>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=depth-first-search">DFS Problems</a></li>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=depth-first-search">BFS Problems</a></li>
+</ul>
+<p>A tree is actually a type of graph, but not all graphs are trees. Simply put, a tree is a connected graph without cycles.</p>
+<p>A graph is simply a collection of nodes with edges between (some of) them.
+- Graphs can be either directed (like the following graph) or undirected.
+- The graph might consist of multiple isolated subgraphs. If there is a path between every pair of vertices, it is called a "connected graph".
+- The graph can also have cycles (or not). An "acyclic graph" is one without cycles.</p>
+<h2 id="implementation">Implementation</h2>
+<h3 id="adjacency-list">Adjacency List</h3>
+<p>This is the most common way to represent a graph. Every vertex (or node) stores a list of adjacent vertices. In an undirected graph, an edge like <code>(a, b)</code> would be stored twice: once in <code>a</code>'s adjacent vertices and once in <code>b</code>'s adjacent vertices.</p>
+<pre><code>class Graph:
+    def __init__(self, nodes):
+        self.nodes = nodes
+
+class Node:
+    def __init__(self, name, nodes):
+        self.name = name
+        self.nodes = nodes
+</code></pre>
+<p>The Graph class is used because, unlike in a tree, you can't necessarily reach all the nodes from a single node.</p>
+<p>You don't necessarily need any additional classes to represent a graph. An array (or a hash table) of lists (arrays, arraylists, linked lists, etc.) can store the adjacency list.</p>
+<h3 id="adjacency-matrices">Adjacency Matrices</h3>
+<p>An adjacency matrix is an <code>NxN</code> boolean matrix (where <code>N</code> is the number of nodes), where a <code>True</code> value at <code>matrix[i][j]</code> indicates an edge from node <code>i</code> to node <code>j</code>. (You can also use an integer matrix with <code>O</code>s and <code>1</code>s.)</p>
+<p>In an undirected graph, an adjacency matrix will be symmetric. In a directed graph, it will not (necessarily) be.</p>
+<p>The same graph algorithms that are used on adjacency lists (breadth-first search, etc.) can be performed with adjacency matrices, but they may be somewhat less efficient. In the adjacency list representation, you can easily iterate through the neighbors of a node. In the adjacency matrix representation, you will need to iterate through all the nodes to identify a node's neighbors.</p>
+<h2 id="graph-search">Graph Search</h2>
+<p>The two most common ways to search a graph are depth-first search and breadth-first search.</p>
+<p>In depth-first search (DFS), we start at the root (or another arbitrarily selected node) and explore each branch completely before moving on to the next branch. That is, we go deep first (hence the name depth­ first search) before we go wide.</p>
+<p>In breadth-first search (BFS), we start at the root (or another arbitrarily selected node) and explore each neighbor before going on to any of their children. That is, we go wide (hence breadth-first search) before we go deep.</p>
+<p>Breadth-first search and depth-first search tend to be used in different scenarios. DFS is often preferred if we want to visit every node in the graph. Both will work just fine, but depth-first search is a bit simpler.</p>
+<p>However, if we want to find the shortest path (or just any path) between two nodes, BFS is generally better.</p>
+<h3 id="depth-first-search-dfs">Depth-First Search (DFS)</h3>
+<p>In DFS, we visit a node <code>a</code> and then iterate through each of <code>a</code>'s neighbors. When visiting a node <code>b</code> that is a neighbor of <code>a</code>, we visit all of <code>b</code>'s neighbors before going on to <code>a</code>'s other neighbors. That is, a exhaustively searches <code>b</code>'s branch before any of its other neighbors.</p>
+<p>Note that pre-order and other forms of tree traversal are a form of DFS. The key difference is that when implementing this algorithm for a graph, we must check if the node has been visited. If we don't, we risk getting stuck in an infinite loop.</p>
+<pre><code>pass
+</code></pre>
+<h3 id="breadth-first-search-bfs">Breadth-First Search (BFS)</h3>
+<p>BFS is a bit less intuitive, and many interviewees struggle with the implementation unless they are already familiar with it. The main tripping point is the (false) assumption that BFS is recursive. It's not. Instead, it uses a queue.</p>
+<p>In BFS, node a visits each of <code>a</code>'s neighbors before visiting any of their neighbors. You can think of this as searching level by level out from <code>a</code>. An iterative solution involving a queue usually works best.</p>
+<pre><code>pass
+</code></pre>
+<p>If you are asked to implement BFS, the key thing to remember is the use of the queue. The rest of the algo­rithm flows from this fact.</p>
+<h3 id="bidirectional-search">Bidirectional Search</h3>
+<p>Bidirectional search is used to find the shortest path between a source and destination node. It operates by essentially running two simultaneous breadth-first searches, one from each node. When their searches collide, we have found a path.</p>
+<p>To see why this is faster, consider a graph where every node has at most k adjacent nodes and the shortest path from node s to nodet has length d.
+In traditional breadth-first search, we would search up to k nodes in the first "level" of the search. In the second level, we would search up to k nodes for each of those first k nodes, so k2 nodes total (thus far). We would do this d times, so that's 0( kd) nodes.
+In bidirectional search, we have two searches that collide after approximately � levels (the midpoint of the path). The search from s visits approximately kd12, as does the search fromt.That's approximately 2 kdl2, or 0( kd/2), nodes total.
+This might seem like a minor difference, but it's not. It's huge. Recall that tional search is actually faster by a factor of kd12.
+Put another way: if our system could only support searching "friend of friend" paths in breadth-first search, it could now likely support "friend of friend of friend of friend" paths. We can support paths that are twice as long.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../search-and-sort/" class="btn btn-neutral float-right" title="Search & Sort Algorithms">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../tries/" class="btn btn-neutral" title="Tries (Prefix Trees)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../tries/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../search-and-sort/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

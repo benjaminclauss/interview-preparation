@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Heaps - Ben's Super Secret Cool Dude Interview Preparation Website</title>
+  <title>Heaps - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href=".." class="icon icon-home"> Interview Preparation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -88,6 +88,12 @@
     <a class="current" href="./">Heaps</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
+    
+
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -98,7 +104,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../graphs.md">Graphs</a>
+    <a class="" href="../graphs/">Graphs</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -108,7 +114,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dynamic-programming.md">Dynamic Programming</a>
+    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -133,6 +139,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../about/">Example Page</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Other</span>
     <ul class="subnav">
                 <li class="">
@@ -152,7 +163,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href="..">Interview Preparation</a>
       </nav>
 
       
@@ -174,7 +185,8 @@
           <div role="main">
             <div class="section">
               
-                <p><strong>Binary Heaps (Min-Heaps and Max-Heaps)</strong></p>
+                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=heap">Heap Problems</a></p>
+<p><strong>Binary Heaps (Min-Heaps and Max-Heaps)</strong></p>
 <p>A min-heap is a <em>complete</em> binary tree (that is, totally filled other than the rightmost elements on the last level) where each node is smaller than its children. The root, therefore, is the minimum element in the tree.</p>
 <p><em>Insert</em></p>
 <p>When we insert into a min-heap, we always start by inserting the element at the bottom. We insert at the rightmost spot so as to maintain the complete tree property.</p>
@@ -185,8 +197,23 @@
 <p>First, we remove the minimum element and swap it with the last element in the heap (the bottommost, rightmost element). Then, we bubble down this element, swapping it with one of its children until the min­ heap property is restored.</p>
 <p>Do we swap it with the left child or the right child? That depends on their values. There's no inherent ordering between the left and right element, but you'll need to take the smaller one in order to maintain the min-heap ordering.</p>
 <p>This algorithm will also take <code>O(log n)</code> time.</p>
-<p>TODO: Implementation
-TODO: Usage</p>
+<h3 id="implementation">Implementation</h3>
+<h3 id="usage">Usage</h3>
+<p>Note, the default heap implementation is a min-heap. To use a max-heap, invert the value of the keys.
+Heap elements can also be tuples.</p>
+<pre><code>import heapq
+
+numbers = [5, 7, 9, 1, 3]
+
+# Use heapify to convert a list into a heap.
+heapq.heapify(numbers)
+
+# Use heappush() to push elements.
+heapq.heappush(numbers, 4)
+
+# Use heappop() to pop smallest element.
+print(heapq.heappop(numbers))
+</code></pre>
               
             </div>
           </div>

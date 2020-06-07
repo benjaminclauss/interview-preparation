@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Tries (Prefix Trees) - Ben's Super Secret Cool Dude Interview Preparation Website</title>
+  <title>Tries (Prefix Trees) - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href=".." class="icon icon-home"> Interview Preparation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -93,12 +93,18 @@
     <a class="current" href="./">Tries (Prefix Trees)</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
+    
+
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
+    
+
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../graphs.md">Graphs</a>
+    <a class="" href="../graphs/">Graphs</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -108,7 +114,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dynamic-programming.md">Dynamic Programming</a>
+    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -133,6 +139,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../about/">Example Page</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Other</span>
     <ul class="subnav">
                 <li class="">
@@ -152,7 +163,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href="..">Interview Preparation</a>
       </nav>
 
       
@@ -174,7 +185,22 @@
           <div role="main">
             <div class="section">
               
-                
+                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=trie">Trie Problems</a></p>
+<p>A trie is a variant of an n-ary tree in which characters are stored at each node. Each path down the tree may repr</p>
+<p>The <code>*</code> nodes (sometimes called "null nodes") are often used to indicate complete words.</p>
+<p>The actual implementation of these <code>*</code> nodes might be a special type of child (such as a <code>TerminatingTrieNode</code>, which inherits from <code>TrieNode</code>). Or, 
+we could use just a boolean flag <code>terminates</code> within the "parent" node.</p>
+<p>A node in a trie could have anywhere from <code>1</code> through <code>ALPHABET_SIZE + 1</code> children (or, <code>0</code> through <code>ALPHABET_SIZE</code> if a boolean flag is used instead of a <code>*</code> node).</p>
+<p>Very commonly, a trie is used to store the entire (English) language for quick prefix lookups. While a hash table can quickly look up whether a string is a valid word, it cannot tell us if a string is a prefix of any valid words. A trie can do this very quickly.</p>
+<blockquote>
+<p>How quickly? A trie can check if a string is a valid prefix in <code>O(K)</code> time, where <code>K</code> is the length of the string. This is actually the same runtime as a hash table will take. Although we often refer to hash table lookups as being <code>O(1)</code> time, this isn't entirely true. A hash table must read through all the characters in the input, which takes <code>O(K)</code> time in the case of a word lookup.</p>
+</blockquote>
+<h3 id="implementation">Implementation</h3>
+<pre><code># TODO: ...
+</code></pre>
+<h3 id="usage">Usage</h3>
+<pre><code># TODO: ...
+</code></pre>
               
             </div>
           </div>
@@ -182,7 +208,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../search-and-sort/" class="btn btn-neutral float-right" title="Search & Sort Algorithms">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../graphs/" class="btn btn-neutral float-right" title="Graphs">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../heaps/" class="btn btn-neutral" title="Heaps"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -214,7 +240,7 @@
         <span><a href="../heaps/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../search-and-sort/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../graphs/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

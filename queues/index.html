@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Queues - Ben's Super Secret Cool Dude Interview Preparation Website</title>
+  <title>Queues - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href=".." class="icon icon-home"> Interview Preparation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -104,7 +104,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../graphs.md">Graphs</a>
+    <a class="" href="../graphs/">Graphs</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -114,7 +114,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dynamic-programming.md">Dynamic Programming</a>
+    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -139,6 +139,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../about/">Example Page</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Other</span>
     <ul class="subnav">
                 <li class="">
@@ -158,7 +163,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href="..">Interview Preparation</a>
       </nav>
 
       
@@ -180,7 +185,7 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=queue">LeetCode Queue Problems</a></p>
+                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=queue">Queue Problems</a></p>
 <p>A queue implements FIFO (first-in first-out) ordering. As in a line or queue at a ticket stand, items are removed from the data structure in the same order that they are added.</p>
 <p>It uses the operations:</p>
 <ul>
@@ -191,9 +196,26 @@
 </ul>
 <p>A queue can also be implemented with a linked list. In fact, they are essentially the same thing, as long as items are added and removed from opposite sides.</p>
 <h3 id="implementation">Implementation</h3>
-<pre><code>TODO
-</code></pre>
+<pre><code>class Queue:
+    def __init__(self):
+        self.queue = []
 
+    def add(self, item):
+        self.queue.append(item)
+
+    def remove(self):
+        if len(self.queue) &gt; 0:
+            return self.queue.pop(0)
+        return None
+
+    def peek(self):
+        if len(self.queue) &gt; 0:
+            return self.queue[0]
+        return None
+
+    def is_empty(self):
+        return len(self.queue) == 0
+</code></pre>
 <p>It is especially easy to mess up the updating of the first and last nodes in a queue. Be sure to double check this.</p>
 <p>One place where queues are often used is in breadth-first search or in implementing a cache.</p>
 <p>In breadth-first search, for example, we used a queue to store a list of the nodes that we need to process. Each time we process a node, we add its adjacent nodes to the back of the queue. This allows us to process nodes in the order in which they are viewed.</p>
@@ -208,7 +230,6 @@ fruits.append('grapes')
 # Remove from queue.
 first_item = fruits.pop(0)
 </code></pre>
-
 <p><strong>deque</strong></p>
 <pre><code>from collections import deque
 

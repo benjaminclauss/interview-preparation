@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Linked Lists - Interview Preparation</title>
+  <title>Dynamic Programming - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Linked Lists";
-    var mkdocs_page_input_path = "linked-lists.md";
+    var mkdocs_page_name = "Dynamic Programming";
+    var mkdocs_page_input_path = "dynamic-programming.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -63,15 +63,9 @@
     <a class="" href="../arrays-and-strings/">Arrays & Strings</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Linked Lists</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#the-runner-technique">The "Runner" Technique</a></li>
-    
-
-    </ul>
+    <a class="" href="../linked-lists/">Linked Lists</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -109,9 +103,12 @@
     <a class="" href="../search-and-sort/">Search & Sort Algorithms</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
+    <a class="current" href="./">Dynamic Programming</a>
+    <ul class="subnav">
+            
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -172,7 +169,7 @@
     
       
     
-    <li>Linked Lists</li>
+    <li>Dynamic Programming</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -182,45 +179,7 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=linked-list">Linked List Problems</a></p>
-<p>A linked list is a data structure that represents a sequence of nodes. In a singly linked list, each node points to the next node in the linked list. A doubly linked list gives each node pointers to both the next node and the previous node.</p>
-<p>Unlike an array, a linked list does not provide constant time access to a particular "index" within the list. This means that if you'd like to find the Kth element in the list, you will need to iterate through K elements.</p>
-<p>The benefit of a linked list is that you can add and remove items from the beginning of the list in constant time. For specific applications, this can be useful.</p>
-<p>A number of linked list problems rely on recursion. If you're having trouble solving a linked list problem, you should explore if a recursive approach will work.
-Remember that recursive algorithms take at least O(n) space, where n is the depth of the recursive call. All recursive algorithms can be implemented iteratively, although they may be much more complex.</p>
-<pre><code>class SingleNode:
-    def __init__(self, value=None):
-        self.value = value
-        self.next = None
-
-class SingleLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def print(self):
-        node = self.head
-        while node is not None:
-            print(node.value)
-            node = node.next
-
-class DoubleNode:
-    def __init__(self, value=None):
-        self.value = value
-        self.next = None
-        self.prev = None
-
-class DoubleLinkedList:
-    def __init__(self):
-        self.head = None
-
-    def print(self):
-        node = self.head
-        while node is not None:
-            print(node.value)
-            node = node.next
-</code></pre>
-<h4 id="the-runner-technique">The "Runner" Technique</h4>
-<p>The "runner" (or second pointer) technique is used in many linked list problems. The runner technique means that you iterate through the linked list with two pointers simultaneously, with one ahead of the other. The "fast" node might be ahead by a fixed amount, or it might be hopping multiple nodes for each one node that the "slow" node iterates through.</p>
+                
               
             </div>
           </div>
@@ -228,10 +187,10 @@ class DoubleLinkedList:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../stacks/" class="btn btn-neutral float-right" title="Stacks">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../about/" class="btn btn-neutral float-right" title="Example Page">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../arrays-and-strings/" class="btn btn-neutral" title="Arrays & Strings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../search-and-sort/" class="btn btn-neutral" title="Search & Sort Algorithms"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -257,10 +216,10 @@ class DoubleLinkedList:
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../arrays-and-strings/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../search-and-sort/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../stacks/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

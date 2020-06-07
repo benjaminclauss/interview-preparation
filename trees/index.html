@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Trees - Ben's Super Secret Cool Dude Interview Preparation Website</title>
+  <title>Trees - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href=".." class="icon icon-home"> Interview Preparation</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -83,6 +83,9 @@
     <a class="current" href="./">Trees</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
+    
+
     <li class="toctree-l2"><a href="#binary-tree-traversal">Binary Tree Traversal</a></li>
     
 
@@ -101,7 +104,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../graphs.md">Graphs</a>
+    <a class="" href="../graphs/">Graphs</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -111,7 +114,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dynamic-programming.md">Dynamic Programming</a>
+    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -136,6 +139,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../about/">Example Page</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <span class="caption-text">Other</span>
     <ul class="subnav">
                 <li class="">
@@ -155,7 +163,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Ben's Super Secret Cool Dude Interview Preparation Website</a>
+        <a href="..">Interview Preparation</a>
       </nav>
 
       
@@ -178,37 +186,37 @@
             <div class="section">
               
                 <ul>
-<li><a href="https://leetcode.com/problemset/all/?topicSlugs=tree">LeetCode Tree Problems</a></li>
-<li><a href="https://leetcode.com/problemset/all/?topicSlugs=binary-search-tree">LeetCode Binary Search Tree Problems</a></li>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=tree">Tree Problems</a></li>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=binary-search-tree">Binary Search Tree Problems</a></li>
 </ul>
-<p>https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/</p>
 <p><strong>Types of Trees</strong></p>
 <p>A nice way to understand a tree is with a recursive explanation. A tree is a data structure composed of nodes.
 - Each tree has a root node. (Actually, this isn't strictly necessary in graph theory, but it's usually how we use trees in programming, and especially programming interviews.)
 - The root node has zero or more child nodes.
 - Each child node has zero or more child nodes, and so on.
 The tree cannot contain cycles. The nodes may or may not be in a particular order, they could have any data type as values, and they may or may not have links back to their parent nodes.</p>
+<h3 id="implementation">Implementation</h3>
 <pre><code>class TreeNode:
     def __init__(self, value=None, children=[]):
         self.value = value
         self.children = children
 
-class TreeNode:
+class BinaryTreeNode:
     def __init__(self, value=0, left=None, right=None):
         self.value = value
         self.left = left
         self.right = right
 </code></pre>
-
 <p><strong>Trees vs. Binary Trees</strong></p>
-<p>A binary tree is a tree in which each node has up to two children.
+<p>A binary tree is a tree in which each node has up to two children. Not all trees are binary trees.
 There are occasions when you might have a tree that is not a binary tree. For example, suppose you were using a tree to represent a bunch of phone numbers. In this case, you might use a 10-ary tree, with each node having up to 10 children (one for each digit).
 A node is called a "leaf" node if it has no children.</p>
 <p><strong>Binary Tree vs. Binary Search Tree</strong></p>
 <p>A binary search tree is a binary tree in which every node fits a specific ordering property: <code>all left descendents &lt;= n &lt; all right descendents</code>.This must be true for each node <code>n</code>.</p>
 <blockquote>
-<p>The definition of a binary search tree can vary slightly with respect to equality. Under some defi­ nitions, the tree cannot have duplicate values. In others, the duplicate values will be on the right or can be on either side. All are valid definitions, but you should clarify this with your interviewer.</p>
+<p>The definition of a binary search tree can vary slightly with respect to equality. Under some defi­nitions, the tree cannot have duplicate values. In others, the duplicate values will be on the right or can be on either side. All are valid definitions, but you should clarify this with your interviewer.</p>
 </blockquote>
+<p>When given a tree question, many candidates assume the interviewer means a binary search tree. Be sure to ask. A binary search tree imposes the condition that, for each node, its left descendents are less than or equal to the current node, which is less than the right descendents.</p>
 <p><strong>Balanced vs. Unbalanced</strong></p>
 <p>While many trees are balanced, not all are. Ask your interviewer for clarification here. Note that balancing a tree does not mean the left and right subtrees are exactly the same size.</p>
 <p><strong>Complete Binary Trees</strong></p>
@@ -219,6 +227,7 @@ A node is called a "leaf" node if it has no children.</p>
 <p>A perfect binary tree is one that is both full and complete. All leaf nodes will be at the same level, and this level has the maximum number of nodes.</p>
 <p>Note that perfect trees are rare in interviews and in real life, as a perfect tree must have exactly <code>2^k - 1</code> nodes (where k is the number of levels). In an interview, do not assume a binary tree is perfect.</p>
 <h3 id="binary-tree-traversal">Binary Tree Traversal</h3>
+<p>Prior to your interview, you should be comfortable implementing in-order, post-order, and pre-order traversal. The most common of these is in-order traversal.</p>
 <p><strong>In-Order Traversal</strong></p>
 <p>In-order traversal means to "visit" (often, print) the left branch, then the current node, and finally, the right branch.</p>
 <pre><code>def recursive_in_order_traversal(node):
@@ -227,32 +236,50 @@ A node is called a "leaf" node if it has no children.</p>
         print(node.value)
         in_order_traversal(node.right)
 
-def iterative_in_order_traversal(node):
-    current = node  
+def iterative_in_order_traversal(root):
+    if root is None:
+        return
+
+    current = root  
     stack = []
 
     while True: 
         if current is not None: 
             stack.append(current) 
             current = current.left
-        elif(stack): 
+        elif len(stack) &gt; 0: 
             current = stack.pop() 
             print(node.value)
             current = current.right  
         else: 
             break
 </code></pre>
-
 <p>When performed on a binary search tree, it visits the nodes in ascending order (hence the name "in-order").</p>
 <p><strong>Pre-Order Traversal</strong></p>
 <p>Pre-order traversal visits the current node before its child nodes (hence the name "pre-order").</p>
-<pre><code>def pre_order_traversal(node):
+<pre><code>def recursive_pre_order_traversal(node):
     if node != None:
         print(node.value)
         pre_order_traversal(node.left)
         pre_order_traversal(node.right)
-</code></pre>
 
+
+def iterative_pre_order_traversal(root):
+    if root is None:
+        return
+
+    stack = [] 
+    stack.append(root)
+
+    while len(stack) &gt; 0: 
+        node = stack.pop() 
+        print(node.value)
+
+        if node.right is not None:
+            stack.append(node.right) 
+        if node.left is not None: 
+            stack.append(node.left)
+</code></pre>
 <p>In a pre-order traversal, the root is always the first node visited.</p>
 <p><strong>Post-Order Traversal</strong></p>
 <p>Post-order traversal visits the current node after its child nodes (hence the name"post-order").</p>
@@ -261,8 +288,32 @@ def iterative_in_order_traversal(node):
         post_order_traversal(node.left)
         post_order_traversal(node.right)
         print(node.value)
-</code></pre>
 
+# TODO: Review and test this.
+def iterative_post_order_traversal(root): 
+    if root is None: 
+        return
+
+    stack = []     
+    while(True): 
+        while (root): 
+            if root.right is not None: 
+                stack.append(root.right) 
+            stack.append(root)     
+            root = root.left
+
+        root = stack.pop()
+
+        if (root.right is not None and peek(stack) == root.right): 
+            stack.pop()
+            stack.append(root)
+            root = root.right
+        else: 
+            ans.append(root.value)
+            root = None
+        if len(stack) &lt;= 0: 
+            break
+</code></pre>
 <p>In a post-order traversal, the root is always the last node visited.</p>
               
             </div>
