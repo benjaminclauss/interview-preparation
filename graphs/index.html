@@ -98,15 +98,10 @@
     <a class="current" href="./">Graphs</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
+    <li class="toctree-l2"><a href="#tips">Tips</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l3" href="#adjacency-list">Adjacency List</a></li>
-        
-            <li><a class="toctree-l3" href="#adjacency-matrices">Adjacency Matrices</a></li>
-        
-        </ul>
+
+    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
     
 
     <li class="toctree-l2"><a href="#graph-search">Graph Search</a></li>
@@ -119,6 +114,8 @@
         
             <li><a class="toctree-l3" href="#bidirectional-search">Bidirectional Search</a></li>
         
+            <li><a class="toctree-l3" href="#topological-sorting">Topological Sorting</a></li>
+        
         </ul>
     
 
@@ -127,17 +124,22 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../search-and-sort/">Search & Sort Algorithms</a>
+    <a class="" href="../bit-manipulation/">Bit Manipulation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
+    <a class="" href="../sorting-and-searching/">Sorting & Searching</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../backtracking.md">Backtracing</a>
+    <a class="" href="../recursion-and-dynamic-programming/">Recursion & Dynamic Programming</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backtracing/">Backtracing</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -164,6 +166,14 @@
 		
     <span class="caption-text">Other</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ood/">Object-Oriented Design</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../c-and-cpp/">C & C++</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../databases.md">Databases</a>
@@ -207,6 +217,13 @@
 <li><a href="https://leetcode.com/problemset/all/?topicSlugs=graph">Graph Problems</a></li>
 <li><a href="https://leetcode.com/problemset/all/?topicSlugs=depth-first-search">DFS Problems</a></li>
 <li><a href="https://leetcode.com/problemset/all/?topicSlugs=depth-first-search">BFS Problems</a></li>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=topological-sort">Topological Sort</a></li>
+</ul>
+<h3 id="tips">Tips</h3>
+<ul>
+<li><em>How does your code handle cycles?</em></li>
+<li><em>Is the graph connected?</em></li>
+<li><em>Is the graph cyclic?</em></li>
 </ul>
 <p>A tree is actually a type of graph, but not all graphs are trees. Simply put, a tree is a connected graph without cycles.</p>
 <p>A graph is simply a collection of nodes with edges between (some of) them.
@@ -214,7 +231,7 @@
 - The graph might consist of multiple isolated subgraphs. If there is a path between every pair of vertices, it is called a "connected graph".
 - The graph can also have cycles (or not). An "acyclic graph" is one without cycles.</p>
 <h2 id="implementation">Implementation</h2>
-<h3 id="adjacency-list">Adjacency List</h3>
+<p><strong>Adjacency List</strong></p>
 <p>This is the most common way to represent a graph. Every vertex (or node) stores a list of adjacent vertices. In an undirected graph, an edge like <code>(a, b)</code> would be stored twice: once in <code>a</code>'s adjacent vertices and once in <code>b</code>'s adjacent vertices.</p>
 <pre><code>class Graph:
     def __init__(self, nodes):
@@ -227,7 +244,7 @@ class Node:
 </code></pre>
 <p>The Graph class is used because, unlike in a tree, you can't necessarily reach all the nodes from a single node.</p>
 <p>You don't necessarily need any additional classes to represent a graph. An array (or a hash table) of lists (arrays, arraylists, linked lists, etc.) can store the adjacency list.</p>
-<h3 id="adjacency-matrices">Adjacency Matrices</h3>
+<p><strong>Adjacency Matrices</strong></p>
 <p>An adjacency matrix is an <code>NxN</code> boolean matrix (where <code>N</code> is the number of nodes), where a <code>True</code> value at <code>matrix[i][j]</code> indicates an edge from node <code>i</code> to node <code>j</code>. (You can also use an integer matrix with <code>O</code>s and <code>1</code>s.)</p>
 <p>In an undirected graph, an adjacency matrix will be symmetric. In a directed graph, it will not (necessarily) be.</p>
 <p>The same graph algorithms that are used on adjacency lists (breadth-first search, etc.) can be performed with adjacency matrices, but they may be somewhat less efficient. In the adjacency list representation, you can easily iterate through the neighbors of a node. In the adjacency matrix representation, you will need to iterate through all the nodes to identify a node's neighbors.</p>
@@ -237,15 +254,38 @@ class Node:
 <p>In breadth-first search (BFS), we start at the root (or another arbitrarily selected node) and explore each neighbor before going on to any of their children. That is, we go wide (hence breadth-first search) before we go deep.</p>
 <p>Breadth-first search and depth-first search tend to be used in different scenarios. DFS is often preferred if we want to visit every node in the graph. Both will work just fine, but depth-first search is a bit simpler.</p>
 <p>However, if we want to find the shortest path (or just any path) between two nodes, BFS is generally better.</p>
-<h3 id="depth-first-search-dfs">Depth-First Search (DFS)</h3>
+<h3 id="depth-first-search-dfs"><a href="https://en.wikipedia.org/wiki/Depth-first_search">Depth-First Search (DFS)</a></h3>
 <p>In DFS, we visit a node <code>a</code> and then iterate through each of <code>a</code>'s neighbors. When visiting a node <code>b</code> that is a neighbor of <code>a</code>, we visit all of <code>b</code>'s neighbors before going on to <code>a</code>'s other neighbors. That is, a exhaustively searches <code>b</code>'s branch before any of its other neighbors.</p>
 <p>Note that pre-order and other forms of tree traversal are a form of DFS. The key difference is that when implementing this algorithm for a graph, we must check if the node has been visited. If we don't, we risk getting stuck in an infinite loop.</p>
-<pre><code>pass
+<blockquote>
+<p>In theoretical computer science, DFS is typically used to traverse an entire graph, and takes time <code>O(|V| + |E|)</code>, linear in the size of the graph. In these applications it also uses space <code>O(|V|)</code> in the worst case to store the stack of vertices on the current search path as well as the set of already-visited vertices.</p>
+</blockquote>
+<pre><code>def search(root):
+    if root is None:
+        return
+    visit(root)
+    root.visited = True
+    for neighbor in root.neighbors:
+        if not neighbor.visited:
+            search(neighbor)
 </code></pre>
-<h3 id="breadth-first-search-bfs">Breadth-First Search (BFS)</h3>
+<h3 id="breadth-first-search-bfs"><a href="https://en.wikipedia.org/wiki/Breadth-first_search">Breadth-First Search (BFS)</a></h3>
 <p>BFS is a bit less intuitive, and many interviewees struggle with the implementation unless they are already familiar with it. The main tripping point is the (false) assumption that BFS is recursive. It's not. Instead, it uses a queue.</p>
 <p>In BFS, node a visits each of <code>a</code>'s neighbors before visiting any of their neighbors. You can think of this as searching level by level out from <code>a</code>. An iterative solution involving a queue usually works best.</p>
-<pre><code>pass
+<blockquote>
+<p>The time complexity can be expressed as <code>O(|V| + |E|)</code>, since every vertex and every edge will be explored in the worst case. <code>|V|</code> is the number of vertices and <code>|E|</code> is the number of edges in the graph. Note that <code>O(|E|)</code> may vary between <code>O(1)</code> and <code>O(|V|^2)</code>, depending on how sparse the input graph is.</p>
+</blockquote>
+<pre><code>def search(root):
+    queue = []
+    root.marked = True
+    queue.append(root)
+
+    while len(queue) &gt; 0:
+        node = queue.pop(0)
+        visit(node)
+        for neighbor in node.neighbors:
+            if not neighbor.visited:
+                queue.append(neighbor)
 </code></pre>
 <p>If you are asked to implement BFS, the key thing to remember is the use of the queue. The rest of the algo­rithm flows from this fact.</p>
 <h3 id="bidirectional-search">Bidirectional Search</h3>
@@ -255,6 +295,36 @@ In traditional breadth-first search, we would search up to k nodes in the first 
 In bidirectional search, we have two searches that collide after approximately � levels (the midpoint of the path). The search from s visits approximately kd12, as does the search fromt.That's approximately 2 kdl2, or 0( kd/2), nodes total.
 This might seem like a minor difference, but it's not. It's huge. Recall that tional search is actually faster by a factor of kd12.
 Put another way: if our system could only support searching "friend of friend" paths in breadth-first search, it could now likely support "friend of friend of friend of friend" paths. We can support paths that are twice as long.</p>
+<h3 id="topological-sorting"><a href="https://en.wikipedia.org/wiki/Topological_sorting">Topological Sorting</a></h3>
+<blockquote>
+<p>In computer science, a topological sort or topological ordering of a directed graph is a linear ordering of its vertices such that for every directed edge <code>uv</code> from vertex <code>u</code> to vertex <code>v</code>, <code>u</code> comes before <code>v</code> in the ordering. For instance, the vertices of the graph may represent tasks to be performed, and the edges may represent constraints that one task must be performed before another; in this application, a topological ordering is just a valid sequence for the tasks. A topological ordering is possible if and only if the graph has no directed cycles, that is, if it is a directed acyclic graph (DAG). Any DAG has at least one topological ordering, and algorithms are known for constructing a topological ordering of any DAG in linear time.</p>
+</blockquote>
+<p><a href="https://www.youtube.com/watch?v=eL-KzMXSXXI">YouTube</a></p>
+<p><strong> DFS </strong></p>
+<blockquote>
+<p>An alternative algorithm for topological sorting is based on depth-first search. The algorithm loops through each node of the graph, in an arbitrary order, initiating a depth-first search that terminates when it hits any node that has already been visited since the beginning of the topological sort or the node has no outgoing edges (i.e. a leaf node).</p>
+<p>Since each edge and node is visited once, the algorithm runs in linear time.</p>
+</blockquote>
+<pre><code>L ← Empty list that will contain the sorted nodes
+while exists nodes without a permanent mark do
+    select an unmarked node n
+    visit(n)
+
+function visit(node n)
+    if n has a permanent mark then
+        return
+    if n has a temporary mark then
+        stop   (not a DAG)
+
+    mark n with a temporary mark
+
+    for each node m with an edge from n to m do
+        visit(m)
+
+    remove temporary mark from n
+    mark n with a permanent mark
+    add n to head of L
+</code></pre>
               
             </div>
           </div>
@@ -262,7 +332,7 @@ Put another way: if our system could only support searching "friend of friend" p
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../search-and-sort/" class="btn btn-neutral float-right" title="Search & Sort Algorithms">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../bit-manipulation/" class="btn btn-neutral float-right" title="Bit Manipulation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../tries/" class="btn btn-neutral" title="Tries (Prefix Trees)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -294,7 +364,7 @@ Put another way: if our system could only support searching "friend of friend" p
         <span><a href="../tries/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../search-and-sort/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../bit-manipulation/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

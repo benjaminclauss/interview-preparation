@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Queues - Interview Preparation</title>
+  <title>Recursion & Dynamic Programming - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Queues";
-    var mkdocs_page_input_path = "queues.md";
+    var mkdocs_page_name = "Recursion & Dynamic Programming";
+    var mkdocs_page_input_path = "recursion-and-dynamic-programming.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -73,18 +73,9 @@
     <a class="" href="../stacks/">Stacks</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
-    
-
-    <li class="toctree-l2"><a href="#usage">Usage</a></li>
-    
-
-    </ul>
+    <a class="" href="../queues/">Queues</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -117,9 +108,18 @@
     <a class="" href="../sorting-and-searching/">Sorting & Searching</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../recursion-and-dynamic-programming/">Recursion & Dynamic Programming</a>
+    <a class="current" href="./">Recursion & Dynamic Programming</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#recursive-vs-iterative-solutions">Recursive vs. Iterative Solutions</a></li>
+    
+
+    <li class="toctree-l2"><a href="#dynamic-programming-memoization">Dynamic Programming &amp; Memoization</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -188,7 +188,7 @@
     
       
     
-    <li>Queues</li>
+    <li>Recursion & Dynamic Programming</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -198,60 +198,56 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=queue">Queue Problems</a></p>
-<p>A queue implements FIFO (first-in first-out) ordering. As in a line or queue at a ticket stand, items are removed from the data structure in the same order that they are added.</p>
-<p>It uses the operations:</p>
-<ul>
-<li><code>add(item)</code>: Add an item to the end of the list.</li>
-<li><code>remove()</code>: Remove the first item in the list.</li>
-<li><code>peek()</code> : Return the top of the queue.</li>
-<li><code>is_empty()</code>: Return <code>True</code> if and only if the queue is empty.</li>
+                <ul>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=recursion">Recursion Problems</a></li>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=divide-and-conquer">Divide and Conquer Problems</a></li>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=dynamic-programming">Dynamic Programming Problems</a></li>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=memoization">Memoization Problems</a></li>
 </ul>
-<p>A queue can also be implemented with a linked list. In fact, they are essentially the same thing, as long as items are added and removed from opposite sides.</p>
-<h3 id="implementation">Implementation</h3>
-<pre><code>class Queue:
-    def __init__(self):
-        self.queue = []
-
-    def add(self, item):
-        self.queue.append(item)
-
-    def remove(self):
-        if len(self.queue) &gt; 0:
-            return self.queue.pop(0)
-        return None
-
-    def peek(self):
-        if len(self.queue) &gt; 0:
-            return self.queue[0]
-        return None
-
-    def is_empty(self):
-        return len(self.queue) == 0
+<blockquote>
+<p>While there are a large number of recursive problems, many follow similar patterns. A good hint that a problem is recursive is that it can be built off of subproblems.</p>
+</blockquote>
+<p><strong>How to Approach</strong></p>
+<ul>
+<li>Bottom-Up Approach</li>
+<li>Top-Down Approach</li>
+<li>Half-and-Half Approach</li>
+</ul>
+<blockquote>
+<p>Drawing the recursive calls as a tree is a great way to figure out the runtime of a recursive algorithm.</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm"><strong>Divide-and-conquer algorithm</strong></a></p>
+<h3 id="recursive-vs-iterative-solutions">Recursive vs. Iterative Solutions</h3>
+<p>Recursive algorithms can be very space inefficient. Each recursive call adds a new layer to the stack, which means that if your algorithm recurses to a depth of <code>n</code>, it uses at least <code>O(n)</code> memory.</p>
+<p>For this reason, it's often better to implement a recursive algorithm iteratively. <strong><strong>All</strong> recursive algorithms can be implemented iteratively, although sometimes the code to do so is much more complex.</strong> Before diving into recursive code, ask yourself how hard it would be to implement it iteratively, and discuss the tradeoffs with your interviewer.</p>
+<h2 id="dynamic-programming-memoization">Dynamic Programming &amp; Memoization</h2>
+<p>Dynamic programming is mostly just a matter of taking a recursive algorithm and finding the overlapping subproblems (that is, the repeated calls). You then cache those results for future recursive calls.</p>
+<p><strong>Generate Fibonacci Numbers</strong></p>
+<p><strong>Recursive</strong></p>
+<pre><code>def fibonacci(n) {
+    if n == 0 or n == 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+}
 </code></pre>
-<p>It is especially easy to mess up the updating of the first and last nodes in a queue. Be sure to double check this.</p>
-<p>One place where queues are often used is in breadth-first search or in implementing a cache.</p>
-<p>In breadth-first search, for example, we used a queue to store a list of the nodes that we need to process. Each time we process a node, we add its adjacent nodes to the back of the queue. This allows us to process nodes in the order in which they are viewed.</p>
-<h3 id="usage">Usage</h3>
-<p><strong>List</strong></p>
-<pre><code>fruits = []
+<p><strong>Top-Down Dynamic Programming (or <a href="https://en.wikipedia.org/wiki/Memoization">Memoization</a>)</strong></p>
+<pre><code>int fibonacci(int n) {
+    return fibonacci(n, new int[n + 1]);
+}
 
-# Add to queue.
-fruits.append('banana')
-fruits.append('grapes')
+int fibonacci(int i, int[] memo) {
+    if(i== 0 || i== 1) return i;
 
-# Remove from queue.
-first_item = fruits.pop(0)
+    if (memo[i] == 0) {
+            memo[i] = fibonacci(i - 1, memo) + fibonacci(i - 2, memo);
+    }
+    return memo[i]
+}
 </code></pre>
-<p><strong>deque</strong></p>
-<pre><code>from collections import deque
+<p><strong>Bottom-Up Dynamic Programming</strong></p>
+<pre><code>TODO
 
-numbers = deque()
-
-numbers.append(99)
-numbers.append(15)
-
-last_item = numbers.popleft()
+TODO
 </code></pre>
               
             </div>
@@ -260,10 +256,10 @@ last_item = numbers.popleft()
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../trees/" class="btn btn-neutral float-right" title="Trees">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../backtracing/" class="btn btn-neutral float-right" title="Backtracing">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../stacks/" class="btn btn-neutral" title="Stacks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sorting-and-searching/" class="btn btn-neutral" title="Sorting & Searching"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -289,10 +285,10 @@ last_item = numbers.popleft()
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../stacks/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../sorting-and-searching/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../trees/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../backtracing/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

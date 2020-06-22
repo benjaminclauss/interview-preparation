@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Queues - Interview Preparation</title>
+  <title>Object-Oriented Design - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Queues";
-    var mkdocs_page_input_path = "queues.md";
+    var mkdocs_page_name = "Object-Oriented Design";
+    var mkdocs_page_input_path = "ood.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -73,18 +73,9 @@
     <a class="" href="../stacks/">Stacks</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
-    
-
-    <li class="toctree-l2"><a href="#usage">Usage</a></li>
-    
-
-    </ul>
+    <a class="" href="../queues/">Queues</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -151,9 +142,18 @@
 		
     <span class="caption-text">Other</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../ood/">Object-Oriented Design</a>
+    <a class="current" href="./">Object-Oriented Design</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#how-to-approach">How to Approach</a></li>
+    
+
+    <li class="toctree-l3"><a href="#design-patterns">Design Patterns</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -187,8 +187,12 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Other &raquo;</li>
+        
+      
     
-    <li>Queues</li>
+    <li>Object-Oriented Design</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -198,60 +202,49 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=queue">Queue Problems</a></p>
-<p>A queue implements FIFO (first-in first-out) ordering. As in a line or queue at a ticket stand, items are removed from the data structure in the same order that they are added.</p>
-<p>It uses the operations:</p>
+                <h3 id="how-to-approach">How to Approach</h3>
+<p><strong>1. Handle Ambiguity</strong></p>
 <ul>
-<li><code>add(item)</code>: Add an item to the end of the list.</li>
-<li><code>remove()</code>: Remove the first item in the list.</li>
-<li><code>peek()</code> : Return the top of the queue.</li>
-<li><code>is_empty()</code>: Return <code>True</code> if and only if the queue is empty.</li>
+<li>Ask clarifying questions.</li>
+<li>When being asked about an object-oreinted design question, you should inquire <em>who</em> is going to use it and <em>how</em> they are going to use it.</li>
 </ul>
-<p>A queue can also be implemented with a linked list. In fact, they are essentially the same thing, as long as items are added and removed from opposite sides.</p>
-<h3 id="implementation">Implementation</h3>
-<pre><code>class Queue:
-    def __init__(self):
-        self.queue = []
-
-    def add(self, item):
-        self.queue.append(item)
-
-    def remove(self):
-        if len(self.queue) &gt; 0:
-            return self.queue.pop(0)
-        return None
-
-    def peek(self):
-        if len(self.queue) &gt; 0:
-            return self.queue[0]
-        return None
-
-    def is_empty(self):
-        return len(self.queue) == 0
+<p><strong>2. Define the Core Objects</strong></p>
+<p><strong>3. Analyze Relationships</strong></p>
+<ul>
+<li>Which objects are members of which ohter objects?</li>
+<li>Do any objects inherit from any others?</li>
+<li>Are relationships many-to-many or one-to-many?</li>
+</ul>
+<p><strong>4. Investigate Actions</strong></p>
+<h3 id="design-patterns">Design Patterns</h3>
+<blockquote>
+<p>Be careful you don't fall into a trap of constantly trying to find the "right" design pattern for a particular problem. You should create the design that works for that problem. In some cases it might be an established pattern, but in many other cases it is not.</p>
+</blockquote>
+<p><strong>Singleton Class</strong></p>
+<p>The Singleton pattern ensures that a class has only one instance and ensures access to the instance through the application. It can be useful in cases where you have a "global" object with exactly one instance. For example, we may want to implement <code>Restaurant</code> such that it has exactly one instance of <code>Restaurant</code>.</p>
+<pre><code>public class Restaurant {
+    private static Restaurant _instance = null;
+    protected Retaurant() { ... }
+    public static Restaurant getInstance() {
+        if (_instance == null) {
+            _instance = new Restaurant();
+        }
+    }
+}
 </code></pre>
-<p>It is especially easy to mess up the updating of the first and last nodes in a queue. Be sure to double check this.</p>
-<p>One place where queues are often used is in breadth-first search or in implementing a cache.</p>
-<p>In breadth-first search, for example, we used a queue to store a list of the nodes that we need to process. Each time we process a node, we add its adjacent nodes to the back of the queue. This allows us to process nodes in the order in which they are viewed.</p>
-<h3 id="usage">Usage</h3>
-<p><strong>List</strong></p>
-<pre><code>fruits = []
-
-# Add to queue.
-fruits.append('banana')
-fruits.append('grapes')
-
-# Remove from queue.
-first_item = fruits.pop(0)
-</code></pre>
-<p><strong>deque</strong></p>
-<pre><code>from collections import deque
-
-numbers = deque()
-
-numbers.append(99)
-numbers.append(15)
-
-last_item = numbers.popleft()
+<p>It should be noted that many people dislike the Singleton design pattern, even calling it an "anti-pattern:' One reason for this is that it can interfere with unit testing.</p>
+<p><strong>Factory Method</strong></p>
+<p>The Factory Method offers an interface for creating an instance of a class, with its subclasses deciding which class to instantiate. You might want to implement this with the creator class being abstract and not providing an implementation for the Factory method. Or, you could have the Creator class be a concrete class that provides an implementation for the Factory method. In this case, the Factory method would take a parameter representing which class to instantiate.</p>
+<pre><code>public class CardGame {
+    public static CardGame createCardGame(GameType type) {
+        if (type == GameType.Poker) {
+            return new PokerGame();
+        } else if (type == GameType.BlackJack) {
+            return new BlackJackGame();
+        }
+        return null;
+    }
+}
 </code></pre>
               
             </div>
@@ -260,10 +253,10 @@ last_item = numbers.popleft()
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../trees/" class="btn btn-neutral float-right" title="Trees">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../c-and-cpp/" class="btn btn-neutral float-right" title="C & C++">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../stacks/" class="btn btn-neutral" title="Stacks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../about/" class="btn btn-neutral" title="Example Page"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -289,10 +282,10 @@ last_item = numbers.popleft()
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../stacks/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../about/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../trees/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../c-and-cpp/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

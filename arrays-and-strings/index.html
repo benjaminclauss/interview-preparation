@@ -66,10 +66,10 @@
     <li class="toctree-l2"><a href="#hash-tables">Hash Tables</a></li>
     
 
-    <li class="toctree-l2"><a href="#arraylist-resizable-arrays">Arraylist &amp; Resizable Arrays</a></li>
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
     
 
-    <li class="toctree-l2"><a href="#stringbuilder">StringBuilder</a></li>
+    <li class="toctree-l2"><a href="#arraylist-resizable-arrays">Arraylist &amp; Resizable Arrays</a></li>
     
 
     </ul>
@@ -112,17 +112,22 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../search-and-sort/">Search & Sort Algorithms</a>
+    <a class="" href="../bit-manipulation/">Bit Manipulation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
+    <a class="" href="../sorting-and-searching/">Sorting & Searching</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../backtracking.md">Backtracing</a>
+    <a class="" href="../recursion-and-dynamic-programming/">Recursion & Dynamic Programming</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backtracing/">Backtracing</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -149,6 +154,14 @@
 		
     <span class="caption-text">Other</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ood/">Object-Oriented Design</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../c-and-cpp/">C & C++</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../databases.md">Databases</a>
@@ -191,43 +204,47 @@
                 <ul>
 <li><a href="https://leetcode.com/problemset/all/?topicSlugs=array">Array Problems</a></li>
 <li><a href="https://leetcode.com/problemset/all/?topicSlugs=string">String Problems</a></li>
+<li><a href="(https://leetcode.com/problemset/all/?topicSlugs=sliding-window)">Sliding Window Problems</a></li>
 </ul>
+<p><a href="https://www.geeksforgeeks.org/window-sliding-technique/">Window Sliding Technique</a></p>
+<blockquote>
 <p>Please note that array questions and string questions are often interchangeable.</p>
+</blockquote>
+<ul>
+<li>Generating all possible substrings in a string of length <code>n</code> would be <code>O(n^2)</code>.</li>
+</ul>
+<p>Time complexity: <code>O(n^n)</code>. Consider the worst case where <code>s = "aaaaaaa"</code> and every prefix of <code>s</code> is present in the dictionary of words, then the recursion tree can grow upto <code>n^n</code>.</p>
 <h3 id="hash-tables">Hash Tables</h3>
 <p>A hash table is a data structure that maps keys to values for highly efficient lookup. There are a number of ways of implementing this. </p>
 <p>A simple but common implementation could use an array of linked lists and a hash code function.</p>
-<pre><code># Declare a dictionary.
-some_dict = {'Name': 'Ben', 'Age': 23}
-some_other_dict = dict()
+<h3 id="usage">Usage</h3>
+<p>Use a dictionary.</p>
+<pre><code>some_dictionary = {}
 
-# Accessing the dictionary with its key.
-print(some_dict['Name'])
+# Add a value.
+some_dictionary[key] = value
 
-# Update existing entry.
-some_dict['Name'] = 'Bob'
+# Remove a value.
+del some_dictionary[key]
 
-# Remove entry.
-del some_dict['Name']
-# Remove all entries.
-some_dict.clear()
-# Delete entire dictionary.
-del some_dict
+# Iterate through dictionary.
+for key in some_dictionary:
+    print(key)
+
+# Iterate through items.
+for key, value in some_dictionary.items():
+    print(key)
+    print(value)
+
+keys = some_dictionary.keys()
+values = some_dictionary.values()
 </code></pre>
-
 <h3 id="arraylist-resizable-arrays">Arraylist &amp; Resizable Arrays</h3>
 <p>Lists are resizable by default in Python.</p>
-<pre><code>names = ['Ben', 'Bob', 'Bill']
-some_list = list()
+<p>For resizable lists (i.e. ArrayList in Java),  amortized insertion runtime is <code>O(1)</code>. In the worst case, you have <code>O(n)</code> work copying over all <code>n</code> elements. Most of the time, you have <code>O(1)</code> work.</p>
+<!-- ### StringBuilder -->
 
-for name in names:
-    print(name)
-</code></pre>
-
-<p>Amortized insertion runtime is O(1).</p>
-<h3 id="stringbuilder">StringBuilder</h3>
-<pre><code>some_name = 'Ben'
-some_name += ' Clauss'
-</code></pre>
+<!-- This section is not necessary for Pythonic interviews. -->
               
             </div>
           </div>

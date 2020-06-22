@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Queues - Interview Preparation</title>
+  <title>Miscellaneous - Interview Preparation</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Queues";
-    var mkdocs_page_input_path = "queues.md";
+    var mkdocs_page_name = "Miscellaneous";
+    var mkdocs_page_input_path = "miscellaneous.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -73,18 +73,9 @@
     <a class="" href="../stacks/">Stacks</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Queues</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
-    
-
-    <li class="toctree-l2"><a href="#usage">Usage</a></li>
-    
-
-    </ul>
+    <a class="" href="../queues/">Queues</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -188,7 +179,7 @@
     
       
     
-    <li>Queues</li>
+    <li>Miscellaneous</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -198,74 +189,15 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=queue">Queue Problems</a></p>
-<p>A queue implements FIFO (first-in first-out) ordering. As in a line or queue at a ticket stand, items are removed from the data structure in the same order that they are added.</p>
-<p>It uses the operations:</p>
+                <h3 id="grids-and-matricies">Grids and Matricies</h3>
 <ul>
-<li><code>add(item)</code>: Add an item to the end of the list.</li>
-<li><code>remove()</code>: Remove the first item in the list.</li>
-<li><code>peek()</code> : Return the top of the queue.</li>
-<li><code>is_empty()</code>: Return <code>True</code> if and only if the queue is empty.</li>
+<li>Is BFS/DFS applicable?</li>
+<li>Can we use Dynamic Programming for cells based on surrounding cells?</li>
 </ul>
-<p>A queue can also be implemented with a linked list. In fact, they are essentially the same thing, as long as items are added and removed from opposite sides.</p>
-<h3 id="implementation">Implementation</h3>
-<pre><code>class Queue:
-    def __init__(self):
-        self.queue = []
-
-    def add(self, item):
-        self.queue.append(item)
-
-    def remove(self):
-        if len(self.queue) &gt; 0:
-            return self.queue.pop(0)
-        return None
-
-    def peek(self):
-        if len(self.queue) &gt; 0:
-            return self.queue[0]
-        return None
-
-    def is_empty(self):
-        return len(self.queue) == 0
-</code></pre>
-<p>It is especially easy to mess up the updating of the first and last nodes in a queue. Be sure to double check this.</p>
-<p>One place where queues are often used is in breadth-first search or in implementing a cache.</p>
-<p>In breadth-first search, for example, we used a queue to store a list of the nodes that we need to process. Each time we process a node, we add its adjacent nodes to the back of the queue. This allows us to process nodes in the order in which they are viewed.</p>
-<h3 id="usage">Usage</h3>
-<p><strong>List</strong></p>
-<pre><code>fruits = []
-
-# Add to queue.
-fruits.append('banana')
-fruits.append('grapes')
-
-# Remove from queue.
-first_item = fruits.pop(0)
-</code></pre>
-<p><strong>deque</strong></p>
-<pre><code>from collections import deque
-
-numbers = deque()
-
-numbers.append(99)
-numbers.append(15)
-
-last_item = numbers.popleft()
-</code></pre>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../trees/" class="btn btn-neutral float-right" title="Trees">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../stacks/" class="btn btn-neutral" title="Stacks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -289,10 +221,6 @@ last_item = numbers.popleft()
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../stacks/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../trees/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

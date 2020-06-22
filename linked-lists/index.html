@@ -68,7 +68,13 @@
     <a class="current" href="./">Linked Lists</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#the-runner-technique">The "Runner" Technique</a></li>
+    <li class="toctree-l2"><a href="#implementation">Implementation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#the-runner-technique">The "Runner" Technique</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -106,17 +112,22 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../search-and-sort/">Search & Sort Algorithms</a>
+    <a class="" href="../bit-manipulation/">Bit Manipulation</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../dynamic-programming/">Dynamic Programming</a>
+    <a class="" href="../sorting-and-searching/">Sorting & Searching</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../backtracking.md">Backtracing</a>
+    <a class="" href="../recursion-and-dynamic-programming/">Recursion & Dynamic Programming</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../backtracing/">Backtracing</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -143,6 +154,14 @@
 		
     <span class="caption-text">Other</span>
     <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../ood/">Object-Oriented Design</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../c-and-cpp/">C & C++</a>
+                </li>
                 <li class="">
                     
     <a class="" href="../databases.md">Databases</a>
@@ -182,12 +201,16 @@
           <div role="main">
             <div class="section">
               
-                <p><a href="https://leetcode.com/problemset/all/?topicSlugs=linked-list">Linked List Problems</a></p>
+                <ul>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=linked-list">Linked List Problems</a></li>
+<li><a href="https://leetcode.com/problemset/all/?topicSlugs=two-pointers">Two Pointers Problems</a></li>
+</ul>
 <p>A linked list is a data structure that represents a sequence of nodes. In a singly linked list, each node points to the next node in the linked list. A doubly linked list gives each node pointers to both the next node and the previous node.</p>
 <p>Unlike an array, a linked list does not provide constant time access to a particular "index" within the list. This means that if you'd like to find the Kth element in the list, you will need to iterate through K elements.</p>
 <p>The benefit of a linked list is that you can add and remove items from the beginning of the list in constant time. For specific applications, this can be useful.</p>
 <p>A number of linked list problems rely on recursion. If you're having trouble solving a linked list problem, you should explore if a recursive approach will work.
-Remember that recursive algorithms take at least O(n) space, where n is the depth of the recursive call. All recursive algorithms can be implemented iteratively, although they may be much more complex.</p>
+Remember that recursive algorithms take at least <code>O(n)</code> space, where <code>n</code> is the depth of the recursive call. All recursive algorithms <em>can</em> be implemented iteratively, although they may be much more complex.</p>
+<h3 id="implementation">Implementation</h3>
 <pre><code>class SingleNode:
     def __init__(self, value=None):
         self.value = value
@@ -201,6 +224,23 @@ class SingleLinkedList:
         node = self.head
         while node is not None:
             print(node.value)
+            node = node.next
+
+    def append_to_tail(self, value):
+        end = Node(value)
+        node = self.head
+        while node.next is not None:
+            node = node.next
+        node.next = end
+
+    def delete_node(self, value):
+        node = self.head
+        if node.value == value:
+            self.head = node.next
+
+        while node.next is not None:
+            if node.next.value == value:
+                node.next = node.next.next
             node = node.next
 
 class DoubleNode:
